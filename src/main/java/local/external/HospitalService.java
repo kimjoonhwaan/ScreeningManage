@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Date;
 
-@FeignClient(name="HospitalManage", url="http://localhost:8082")
+@FeignClient(name="HospitalManage", url="${api.hospital.url}")//,fallback = HospitalServiceFallback.class)
 public interface HospitalService {
 
     @RequestMapping(method= RequestMethod.PUT, value="/hospitals/{hospitalId}", consumes = "application/json")
     public void screeningRequest(@PathVariable("hospitalId") Long hospitalId, @RequestBody Hospital hospital);
-
 
 }

@@ -17,28 +17,22 @@ public class Screening {
     private String status;
     private String hospitalNm;
 
-    @PrePersist
-    public void onPrePersist(){
-        Requested requested = new Requested();
-        BeanUtils.copyProperties(this, requested);
-        //requested.publishAfterCommit();
-
-        //Following code causes dependency to external APIs
-        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
+    @PostPersist
+    public void onPostPersist(){;
 
         // 검진 요청함 ( Req / Res : 동기 방식 호출)
         local.external.Hospital hospital = new local.external.Hospital();
-        hospital.setHospitalId(requested.getHospitalId());
+        hospital.setHospitalId(getHospitalId());
         // mappings goes here
         ScreeningManageApplication.applicationContext.getBean(local.external.HospitalService.class)
             .screeningRequest(hospital.getHospitalId(),hospital);
-    }
-    @PostPersist
-    public void onPostPersist(){
+
+
         Requested requested = new Requested();
         BeanUtils.copyProperties(this, requested);
         requested.publishAfterCommit();
     }
+
 
     @PostUpdate
     public void onPostUpdate(){
