@@ -14,5 +14,5 @@ local\ScreeningController.class
 local\HospitalController.class
 local\ScreeningRepository.class
 local\Canceled.class
-local\ScreeningMangeApplication.class
+local\ScreeningManageApplication.class
 local\external\HospitalService.class

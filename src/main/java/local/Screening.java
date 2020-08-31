@@ -30,7 +30,7 @@ public class Screening {
         local.external.Hospital hospital = new local.external.Hospital();
         hospital.setHospitalId(requested.getHospitalId());
         // mappings goes here
-        ScreeningMangeApplication.applicationContext.getBean(local.external.HospitalService.class)
+        ScreeningManageApplication.applicationContext.getBean(local.external.HospitalService.class)
             .screeningRequest(hospital.getHospitalId(),hospital);
     }
     @PostPersist
