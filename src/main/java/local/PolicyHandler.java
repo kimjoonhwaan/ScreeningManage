@@ -29,10 +29,11 @@ public class PolicyHandler{
             System.out.println("##### listener ForceCancel : " + hospitalDeleted.toJson());
             List<Screening> list = screeningRepository.findByHospitalId(hospitalDeleted.getId());
             for(Screening temp : list){
-                // 취소된것은 뺄까 ? 굳이 로직까지?
-                //if("Canceled".equals(temp.getStatus()))
-                temp.setStatus("ForceCanceled");
-                screeningRepository.save(temp);
+                // 본인이 취소한건은 제외
+                if(!"CANCELED".equals(temp.getStatus())) {
+                    temp.setStatus("FORCE_CANCELED");
+                    screeningRepository.save(temp);
+                }
             }
         }
     }

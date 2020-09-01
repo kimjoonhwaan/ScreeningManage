@@ -4,7 +4,6 @@ package local;
 public class HospitalDeleted extends AbstractEvent {
 
     private Long id;
-    private String hospitalId;
     private String hospitalNm;
     private Long pCnt;
     private String chkDate;
@@ -15,13 +14,6 @@ public class HospitalDeleted extends AbstractEvent {
 
     public void setId(Long id) {
         this.id = id;
-    }
-    public String getHospitalId() {
-        return hospitalId;
-    }
-
-    public void setHospitalId(String hospitalId) {
-        this.hospitalId = hospitalId;
     }
     public String getHospitalNm() {
         return hospitalNm;

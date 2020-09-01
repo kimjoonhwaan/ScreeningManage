@@ -39,17 +39,17 @@ public class Screening {
 
         System.out.println("#### onPostUpdate :" + this.toString());
 
-        if("Canceled".equals(this.getStatus())) {
+        if("CANCELED".equals(this.getStatus())) {
             Canceled canceled = new Canceled();
             BeanUtils.copyProperties(this, canceled);
             canceled.publishAfterCommit();
+        }else if("FORCE_CANCELED".equals(getStatus())){
+
+            ForceCanceled forceCanceled = new ForceCanceled();
+            BeanUtils.copyProperties(this, forceCanceled);
+            forceCanceled.publishAfterCommit();
         }
 
-/*
-        ForceCanceled forceCanceled = new ForceCanceled();
-        BeanUtils.copyProperties(this, forceCanceled);
-        forceCanceled.publishAfterCommit();
-*/
     }
 
     @PreRemove
