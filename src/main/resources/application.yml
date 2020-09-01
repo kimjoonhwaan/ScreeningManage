@@ -37,10 +37,9 @@ logging:
     org.springframework.cloud: debug
 server:
   port: 8081
-
 api:
   hospital:
-    url: http://localhost:8082
+    url: http://localhost:8080
 
 #feign:
 # hystrix:
@@ -87,3 +86,6 @@ spring:
           destination: local
           contentType: application/json
 
+api:
+  hospital:
+    url: http://HospitalManage:8080
