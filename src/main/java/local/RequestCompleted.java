@@ -4,8 +4,7 @@ package local;
 public class RequestCompleted extends AbstractEvent {
 
     private Long id;
-    private Long screeningId;
-    private String hospitalId;
+    private Long hospitalId;
     private String hospitalNm;
     private String custNm;
     private String status;
@@ -17,18 +16,11 @@ public class RequestCompleted extends AbstractEvent {
     public void setId(Long id) {
         this.id = id;
     }
-    public Long getScreeningId() {
-        return screeningId;
-    }
-
-    public void setScreeningId(Long screeningId) {
-        this.screeningId = screeningId;
-    }
-    public String getHospitalId() {
+    public Long getHospitalId() {
         return hospitalId;
     }
 
-    public void setHospitalId(String hospitalId) {
+    public void setHospitalId(Long hospitalId) {
         this.hospitalId = hospitalId;
     }
     public String getHospitalNm() {

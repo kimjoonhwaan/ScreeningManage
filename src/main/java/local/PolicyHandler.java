@@ -43,6 +43,8 @@ public class PolicyHandler{
 
             Optional<Screening> temp = screeningRepository.findById(reservationCompleted.getScreeningId());
             Screening target = temp.get();
+            System.out.println("##### RequestComplete : " + target.toString());
+            target.setHospitalId(Long.parseLong(reservationCompleted.getHospitalId()));
             target.setStatus(reservationCompleted.getStatus());
             screeningRepository.save(target);
         }

@@ -3,7 +3,7 @@ package local;
 public class ForceCanceled extends AbstractEvent {
 
     private Long id;
-    private String hospitalId;
+    private Long hospitalId;
     private String chkDate;
     private String custNm;
     private String status;
@@ -16,11 +16,11 @@ public class ForceCanceled extends AbstractEvent {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getHospitalId() {
+    public Long getHospitalId() {
         return hospitalId;
     }
 
-    public void setHospitalId(String hospitalId) {
+    public void setHospitalId(Long hospitalId) {
         this.hospitalId = hospitalId;
     }
     public String getChkDate() {

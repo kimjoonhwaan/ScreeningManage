@@ -49,6 +49,9 @@ public class Screening {
             forceCanceled.publishAfterCommit();
         }
         else if("REQUEST_COMPLETED".equals(getStatus())){
+            System.out.println(getStatus());
+            System.out.println("## REQ Info : " + this.getHospitalId());
+            System.out.println("## REQ Info : " + this.getHospitalId());
             RequestCompleted requestCompleted = new RequestCompleted();
             BeanUtils.copyProperties(this, requestCompleted);
             requestCompleted.publishAfterCommit();
