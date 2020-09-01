@@ -86,6 +86,6 @@ spring:
           destination: local
           contentType: application/json
 
-api:
-  hospital:
-    url: http://HospitalManage:8080
+#api:
+ # hospital:
+  #  url: http://HospitalManage:8080
