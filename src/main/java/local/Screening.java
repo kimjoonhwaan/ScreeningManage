@@ -2,7 +2,6 @@ package local;
 
 import javax.persistence.*;
 import org.springframework.beans.BeanUtils;
-import java.util.List;
 
 @Entity
 @Table(name="Screening_table")
@@ -43,23 +42,20 @@ public class Screening {
             Canceled canceled = new Canceled();
             BeanUtils.copyProperties(this, canceled);
             canceled.publishAfterCommit();
-        }else if("FORCE_CANCELED".equals(getStatus())){
-
+        }
+        else if("FORCE_CANCELED".equals(getStatus())){
             ForceCanceled forceCanceled = new ForceCanceled();
             BeanUtils.copyProperties(this, forceCanceled);
             forceCanceled.publishAfterCommit();
         }
+        else if("REQUEST_COMPLETED".equals(getStatus())){
+            RequestCompleted requestCompleted = new RequestCompleted();
+            BeanUtils.copyProperties(this, requestCompleted);
+            requestCompleted.publishAfterCommit();
+        }
 
     }
 
-    @PreRemove
-    public void onPreRemove(){
-        HospitalDeleted hospitalDeleted = new HospitalDeleted();
-        BeanUtils.copyProperties(this, hospitalDeleted);
-        hospitalDeleted.publishAfterCommit();
-
-
-    }
 
 
     public Long getId() {

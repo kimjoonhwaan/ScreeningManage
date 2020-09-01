@@ -1,8 +1,6 @@
 package local;
 
 import local.config.kafka.KafkaProcessor;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -38,10 +36,10 @@ public class PolicyHandler{
         }
     }
     @StreamListener(KafkaProcessor.INPUT)
-    public void wheneverReservationCompleted_UpdatedStatus(@Payload ReservationCompleted reservationCompleted){
+    public void wheneverReservationCompleted_RequestComplete(@Payload ReservationCompleted reservationCompleted){
 
         if(reservationCompleted.isMe()){
-            System.out.println("##### listener UpdatedStatus : " + reservationCompleted.toJson());
+            System.out.println("##### listener RequestComplete : " + reservationCompleted.toJson());
 
             Optional<Screening> temp = screeningRepository.findById(reservationCompleted.getScreeningId());
             Screening target = temp.get();
