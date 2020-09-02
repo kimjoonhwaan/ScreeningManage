@@ -34,7 +34,7 @@ phases:
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$_AWS_REGION.amazonaws.com/user09-screeningmanageE:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$_AWS_REGION.amazonaws.com/user09-screeningmanage:$CODEBUILD_RESOLVED_SOURCE_VERSION
       - echo connect kubectl
       - echo create namespace
       - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
