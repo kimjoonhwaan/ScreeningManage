@@ -80,10 +80,10 @@ spring:
       bindings:
         event-in:
           group: ScreeningMange
-          destination: local
+          destination: ${destination}
           contentType: application/json
         event-out:
-          destination: local
+          destination: ${destination}
           contentType: application/json
 
 #api:
